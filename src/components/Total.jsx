@@ -1,17 +1,15 @@
 import PropTypes from "prop-types";
 
-const Total = ({ parts }) => {
-  const sum = parts[0].exercises + parts[1].exercises + parts[2].exercises;
+const Total = ({ course }) => {
+  const sum =
+    course.parts[0].exercises +
+    course.parts[1].exercises +
+    course.parts[2].exercises;
   return <p>Number of exercises {sum}</p>;
 };
 
 Total.propTypes = {
-  parts: PropTypes.arrayOf(
-    PropTypes.shape({
-      name: PropTypes.string.isRequired,
-      exercises: PropTypes.number.isRequired,
-    })
-  ).isRequired,
+  course: PropTypes.object.isRequired,
 };
 
 Total.displayName = "Part";

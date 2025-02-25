@@ -4,38 +4,35 @@ import Total from "./components/Total";
 import PropTypes from "prop-types";
 
 const App = () => {
-  const course = "Half Stack application development";
-  const parts = [
-    {
-      name: "Fundamentals of React",
-      exercises: 10,
-    },
-    {
-      name: "Using props to pass data",
-      exercises: 7,
-    },
-    {
-      name: "State of a component",
-      exercises: 14,
-    },
-  ];
+  const course = {
+    name: "Half Stack application development",
+    parts: [
+      {
+        name: "Fundamentals of React",
+        exercises: 10,
+      },
+      {
+        name: "Using props to pass data",
+        exercises: 7,
+      },
+      {
+        name: "State of a component",
+        exercises: 14,
+      },
+    ],
+  };
+
   return (
     <div>
       <Header course={course} />
-      <Content parts={parts} />
-      <Total parts={parts} />
+      <Content course={course} />
+      <Total course={course} />
     </div>
   );
 };
 
 App.propTypes = {
-  course: PropTypes.string.isRequired,
-  parts: PropTypes.arrayOf(
-    PropTypes.shape({
-      name: PropTypes.string.isRequired,
-      exercises: PropTypes.number.isRequired,
-    })
-  ).isRequired,
+  course: PropTypes.object.isRequired,
 };
 
 App.displayName = "App";
