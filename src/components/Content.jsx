@@ -1,23 +1,29 @@
 import Part from "./Part";
 import PropTypes from "prop-types";
 
-const Content = ({ parts }) => {
+const Content = ({ part1, part2, part3 }) => {
   return (
     <div>
-      <Part part={parts[0].name} exercises={parts[0].exercises} />
-      <Part part={parts[1].name} exercises={parts[1].exercises} />
-      <Part part={parts[2].name} exercises={parts[2].exercises} />
+      <Part part={part1.name} exercises={part1.exercises} />
+      <Part part={part2.name} exercises={part2.exercises} />
+      <Part part={part3.name} exercises={part3.exercises} />
     </div>
   );
 };
 
 Content.propTypes = {
-  parts: PropTypes.arrayOf(
-    PropTypes.shape({
-      name: PropTypes.string.isRequired,
-      exercises: PropTypes.number.isRequired,
-    })
-  ).isRequired,
+  part1: PropTypes.shape({
+    name: PropTypes.string.isRequired,
+    exercises: PropTypes.number.isRequired,
+  }).isRequired,
+  part2: PropTypes.shape({
+    name: PropTypes.string.isRequired,
+    exercises: PropTypes.number.isRequired,
+  }).isRequired,
+  part3: PropTypes.shape({
+    name: PropTypes.string.isRequired,
+    exercises: PropTypes.number.isRequired,
+  }).isRequired,
 };
 
 Content.displayName = "Content";
